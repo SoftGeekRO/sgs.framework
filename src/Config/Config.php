@@ -38,7 +38,6 @@ class Config {
         if (!is_dir($configDir)) {
             throw new RuntimeException("The application config directory '{$configDir}' does not exist.");
         }
-        var_dump($configDir);
         return $configDir;
     }
 
