@@ -16,7 +16,7 @@ A lightweight PHP framework designed for building web applications with simplici
 
 ## Requirements
 
-- PHP 7.4 or higher
+- PHP 8.3 or higher
 - Composer (for dependency management)
 
 ## Installation
