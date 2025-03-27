@@ -43,7 +43,7 @@ class Config {
     }
 
     public static function getDefaultConfigFile(string $configFilePath = 'Config/defaults.php'): string {
-        $configDir = FilePathResolver::getSrcAbsolutePath() . ltrim($configFilePath, '/');
+        $configDir = SRC . DS . ltrim($configFilePath, '/');
         if (!file_exists($configDir)) {
             throw new RuntimeException("The default config file '{$configDir}' does not exist.");
         }

@@ -11,7 +11,7 @@ if (!defined('DS')) {
  * The full path to the directory which holds "src", WITHOUT a trailing DS.
  * If the framework is in his own folder, you can use dirname(__DIR__)
  */
-define('ROOT', dirname(__DIR__, 2));
+define('ROOT', dirname(__DIR__, 3));
 
 /**
  * When the framework is in SRC folder
