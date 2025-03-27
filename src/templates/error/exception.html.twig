@@ -1,0 +1,74 @@
+{% extends 'layouts/default.html.twig' %}
+
+{% block style %}
+    {{ parent() }}
+    {{ style('style.css') }}
+{% endblock %}
+
+{% block javascript %}
+  {{ parent() }}
+  {{ script('app.js') }}
+{% endblock %}
+
+{% block content %}
+    <div class="error-container">
+        <h1 class="error-header">
+            Error Report
+            <span class="error-count">{{ errors|length }} error(s)</span>
+        </h1>
+        {% for error in errors %}
+            <div class="error-card">
+                <h3 style="margin-top: 0; color: #dc3545;">
+                    {{ error.message }}
+                </h3>
+
+                <div class="error-meta">
+                    <div class="error-meta-item">
+                        <strong>Error Code</strong>
+                        <span>{{ error.code }}</span>
+                    </div>
+                    <div class="error-meta-item">
+                        <strong>File</strong>
+                        <span>{{ error.file }}</span>
+                    </div>
+                    <div class="error-meta-item">
+                        <strong>Line</strong>
+                        <span>{{ error.line }}</span>
+                    </div>
+                    <div class="error-meta-item">
+                        <strong>Occurred At</strong>
+                        <span>{{ error.timestamp }}</span>
+                    </div>
+                </div>
+                {% if debug_mode %}
+                    {% if error.trace is not empty or error.traceString is not empty %}
+                        <div class="trace-toggle" onclick="toggleTrace(this)">
+                            Stack Trace
+                        </div>
+                        <div class="stack-trace">
+                            {% if error.trace is not empty %}
+                                {% for trace in error.trace %}
+                                    <div class="trace-item">
+                                        <div class="trace-file">
+                                            {{ trace.file|default('Unknown file') }}:{{ trace.line|default('?') }}
+                                        </div>
+                                        <div class="trace-call">
+                                            {{ trace.class|default('') }}{{ trace.type|default('') }}{{ trace.function }}()
+                                        </div>
+                                        {% if trace.args %}
+                                            <div class="trace-args">
+                                                Arguments: {{ trace.args|json_encode(constant('JSON_PRETTY_PRINT')) }}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+                            {% else %}
+                                <pre class="trace-string">{{ error.traceString|nl2br }}</pre>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

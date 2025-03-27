@@ -1,0 +1,49 @@
+{
+  "name": "sgs/framework",
+  "type": "library",
+  "description":  "A basic framework build using PHP for internal SoftGeek tools",
+  "keywords": [
+    "php8",
+    "proxy",
+    "library",
+    "framework"
+  ],
+  "homepage": "https://www.softgeek.ro",
+  "license": "GPL-3.0-or-later",
+  "authors": [
+    {
+      "name": "SoulRaven",
+      "homepage": "https://github.com/soulraven"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/SoftGeekRO/sgs.framework/issues",
+    "source": "https://github.com/SoftGeekRO/sgs.framework"
+  },
+  "autoload": {
+    "psr-4": {
+      "SGS\\": "src/",
+      "PROXY\\": "app/",
+      "PROXY\\Lib\\": "app/Lib"
+    }
+  },
+  "require": {
+    "php": ">=8.3",
+    "ext-curl": "*",
+    "ext-intl": "*",
+    "ext-json": "*",
+    "ext-mbstring": "*",
+    "twig/twig": "^3.0",
+    "monolog/monolog": "^3.9.0",
+    "vlucas/phpdotenv": "^v5.6.1",
+    "psr/log": "^3.0",
+    "psr/simple-cache": "^2.0 || ^3.0",
+    "ext-zlib": "*",
+    "ext-sockets": "*",
+    "ext-apcu": "*",
+    "ext-memcache": "*",
+    "ext-redis": "*",
+    "ext-zip": "*",
+    "ext-fileinfo": "*"
+  }
+}
