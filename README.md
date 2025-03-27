@@ -1,6 +1,7 @@
 # SGS Framework
 
-[![License](https://img.shields.io/badge/license-GPL-blue.svg)](LICENSE)
+[![PHP Version](https://img.shields.io/badge/PHP-8.3%2B-blue.svg)]()
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 A lightweight PHP framework designed for building web applications with simplicity and performance in mind.
 
