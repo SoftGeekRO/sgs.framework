@@ -55,6 +55,10 @@ class Router {
             return $this->serveStaticFile($filePath);
         }
 
+        if ($httpMethod === 'HEAD') {
+            return [];
+        }
+
         try {
             // Run global middleware before handling the request
             $this->runMiddleware();
